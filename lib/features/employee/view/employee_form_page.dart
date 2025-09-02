@@ -101,6 +101,7 @@ class _EmployeeFormPageState extends State<EmployeeFormPage> {
                 backgroundColor: Colors.green,
               ),
             );
+
             Navigator.pop(context);
           }
           if (state is EmployeeFailure) {
@@ -119,22 +120,28 @@ class _EmployeeFormPageState extends State<EmployeeFormPage> {
                   controller: _nameController,
                   readOnly: isReadOnly,
                   decoration: const InputDecoration(labelText: 'Nama'),
-                  validator: (value) =>
-                      value!.isEmpty ? 'Nama tidak boleh kosong' : null,
+
+                  validator: (value) => (value == null || value.isEmpty)
+                      ? 'Nama tidak boleh kosong'
+                      : null,
                 ),
                 TextFormField(
                   controller: _nikController,
                   readOnly: isReadOnly,
                   decoration: const InputDecoration(labelText: 'NIK'),
-                  validator: (value) =>
-                      value!.isEmpty ? 'NIK tidak boleh kosong' : null,
+
+                  validator: (value) => (value == null || value.isEmpty)
+                      ? 'NIK tidak boleh kosong'
+                      : null,
                 ),
                 TextFormField(
                   controller: _positionController,
                   readOnly: isReadOnly,
                   decoration: const InputDecoration(labelText: 'Posisi'),
-                  validator: (value) =>
-                      value!.isEmpty ? 'Posisi tidak boleh kosong' : null,
+
+                  validator: (value) => (value == null || value.isEmpty)
+                      ? 'Posisi tidak boleh kosong'
+                      : null,
                 ),
                 const SizedBox(height: 24),
                 if (_mode != FormMode.view)

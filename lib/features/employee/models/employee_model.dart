@@ -14,11 +14,17 @@ class Employee extends Equatable {
   });
 
   factory Employee.fromJson(Map<String, dynamic> json) {
+    String _safeString(dynamic value, String defaultValue) {
+      if (value is String) return value;
+      if (value != null) return value.toString();
+      return defaultValue;
+    }
+
     return Employee(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      nik: json['nik'] as String,
-      position: json['position'] as String,
+      id: _safeString(json['id'], ''),
+      name: _safeString(json['name'], 'No Name'),
+      nik: _safeString(json['nik'], 'No NIK'),
+      position: _safeString(json['position'], 'No Position'),
     );
   }
 

@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobiledev_test/core/services/service_locator.dart';
 import 'package:mobiledev_test/core/state/auth_state.dart';
@@ -29,10 +27,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   setupServiceLocator();
   debugPrint('Service Locator (GetIt) setup.');
-
-  if (sl.isRegistered<AuthState>()) {
-    await sl<AuthState>().tryAutoLogin();
-  }
 
   runApp(await builder());
 }

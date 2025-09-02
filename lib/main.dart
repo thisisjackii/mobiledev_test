@@ -1,10 +1,9 @@
-import 'package:flutter/widgets.dart';
-
+import 'package:flutter/material.dart';
 import 'package:mobiledev_test/app/app.dart';
 import 'package:mobiledev_test/bootstrap.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+Future<void> main() async {
   await bootstrap(() => const App());
 }
